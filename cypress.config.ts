@@ -1,13 +1,13 @@
-import { defineConfig } from 'cypress';
-import webpack from '@cypress/webpack-preprocessor';
-import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
+import { defineConfig } from 'cypress'
+import webpack from '@cypress/webpack-preprocessor'
+import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
 ): Promise<Cypress.PluginConfigOptions> {
-  await addCucumberPreprocessorPlugin(on, config);
-  require('cypress-mochawesome-reporter/plugin')(on);
+  await addCucumberPreprocessorPlugin(on, config)
+  require('cypress-mochawesome-reporter/plugin')(on)
   on(
     'file:preprocessor',
     webpack({
@@ -39,9 +39,9 @@ async function setupNodeEvents(
         },
       },
     })
-  );
+  )
 
-  return config;
+  return config
 }
 
 export default defineConfig({
@@ -50,9 +50,9 @@ export default defineConfig({
   viewportHeight: 1080,
   defaultCommandTimeout: 15000,
   e2e: {
-    baseUrl: 'https://amazon.com/',
+    baseUrl: 'https://ultimateqa.com/automation/',
     specPattern: '**/*.feature',
     chromeWebSecurity: false,
     setupNodeEvents,
   },
-});
+})
